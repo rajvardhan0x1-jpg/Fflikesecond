@@ -143,7 +143,7 @@ async def get_valid_token(uid, password):
         "token": token,
         "expires_at": datetime.now(timezone.utc) + timedelta(seconds=TOKEN_CACHE_TTL),
     }
-    print(f"🆕 [CACHE STORED] UID {uid} — cached for 7 hours")
+    print(f"🆕 [CACHE STORED] UID {uid} — cached for 4 hours")
     return token
 
 
@@ -288,12 +288,12 @@ async def send_all_likes(target_uid, server_name, url):
 def home():
     return jsonify({
         "status": "online",
-        "api": "RISHANT UID PASS LIKE API (OB55)",
-        "token_cache_ttl": f"{TOKEN_CACHE_TTL}s (7 hours)",
-        "channel": "t.me/RishantAPIs",
+        "api": "RDX UID PASS LIKE API (OB55)",
+        "token_cache_ttl": f"{TOKEN_CACHE_TTL}s (4 hours)",
+        "channel": "t.me/rajvardhan_12",
         "endpoints": {
-            "/like": "?uid=UID&server_name=BD&key=VTX",
-            "/reset-cache": "?key=VTX",
+            "/like": "?uid=UID&server_name=BD&key=raj",
+            "/reset-cache": "?key=raj",
         },
     })
 
@@ -393,13 +393,13 @@ def reset_cache():
     if request.args.get("key") != API_KEY:
         return jsonify({"error": "Invalid key"}), 403
     liked_cache.clear()
-    return jsonify({"message": "Cache cleared", "Channel": "t.me/RishantAPIs"})#RishantAPIs
+    return jsonify({"message": "Cache cleared", "Channel": "t.me/rajvardhan_12"})#RishantAPIs
 
 
 # ============= ENTRY POINT ==============
 if __name__ == '__main__':
-    print("🚀 Server started - Smart Like System! (OB55 | 7H Token Cache)")
-    print(f"⏱️  Token Cache TTL = {TOKEN_CACHE_TTL}s (7 hours)")
+    print("🚀 Server started - Smart Like System! (OB55 | 4H Token Cache)")
+    print(f"⏱️  Token Cache TTL = {TOKEN_CACHE_TTL}s (4 hours)")
     print("📁 Account files:")
     print("   - accounts_ind.json (IND)")
     print("   - accounts_br.json  (BR/US/SAC/NA)")
